@@ -4,9 +4,8 @@ package forensic
 import (
 	"fmt"
 	"image"
-	"image/jpeg"
-	"image/png"
 	"os"
+	"path/filepath"
 	"sort"
 	"time"
 )
@@ -127,7 +126,7 @@ func (a *ForensicAnalyzer) analyzeImageData(data []byte, filePath string) (map[s
 	result := make(map[string]interface{})
 
 	// Detect format
-	ext := filePath[filepath.Ext(filePath):]
+	ext := filepath.Ext(filePath)
 	switch ext {
 	case ".jpg", ".jpeg":
 		result["format"] = "JPEG"
@@ -343,7 +342,7 @@ func (a *ForensicAnalyzer) SortResultsByAuthenticity(reverse bool) {
 		if reverse {
 			return results[i].AuthenticityScore > results[j].AuthenticityScore
 		}
-		return results[i].AuthenticityScore < results[j].j
+		return results[i].AuthenticityScore < results[j].AuthenticityScore
 	})
 }
 

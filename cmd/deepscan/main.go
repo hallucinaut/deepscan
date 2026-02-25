@@ -58,7 +58,7 @@ Examples:
   deepscan verify /path/to/image.jpg
   deepscan forensic /path/to/image.jpg
   deepscan compare img1.jpg img2.jpg
-`, "deepscan")
+`)
 }
 
 func analyzeMedia() {

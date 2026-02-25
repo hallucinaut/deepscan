@@ -189,9 +189,9 @@ func (a *MediaAnalyzer) analyzeImage(filePath string) ([2]int, string, error) {
 
 	switch filepath.Ext(filePath) {
 	case ".jpg", ".jpeg":
-		img, _, err = jpeg.Decode(file)
+		img, err = jpeg.Decode(file)
 	case ".png":
-		img, _, err = png.Decode(file)
+		img, err = png.Decode(file)
 	default:
 		return dims, "", fmt.Errorf("unsupported format")
 	}
